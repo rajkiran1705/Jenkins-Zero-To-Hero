@@ -53,17 +53,22 @@ Hurray !! Access the application on `http://<ip-address>:8010`
 
 ```
 System Requirements
-Java 17+ (Oracle JDK, OpenJDK, or AdoptOpenJDK)
+Java 21+ (Oracle JDK, OpenJDK, or AdoptOpenJDK)
 Hardware Recommendations:
    Minimum 2 GB RAM
    2 CPU cores
-sudo apt update && sudo apt install unzip -y
-adduser sonarqube
-wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.4.1.88267.zip
-unzip *
-chown -R sonarqube:sonarqube /opt/sonarqube
-chmod -R 775 /opt/sonarqube
-cd /opt/sonarqube/bin/linux-x86-64
+# Create a dedicated user
+sudo useradd -m -d /opt/sonarqube -s /bin/bash sonarqube
+
+# Download and unzip
+cd /opt
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-25.5.0.107428.zip
+sudo apt install unzip -y
+sudo unzip sonarqube-*.zip
+sudo mv sonarqube-*/ sonarqube-server/
+sudo chown -R sonarqube:sonarqube /opt/sonarqube-server
+sudo su - sonarqube
+cd /opt/sonarqube-server/bin/linux-x86-64/
 ./sonar.sh start
 ```
 
