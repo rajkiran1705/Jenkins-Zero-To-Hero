@@ -31,7 +31,8 @@ Install Java
 
 ```
 sudo apt update
-sudo apt install openjdk-17-jdk -y
+sudo apt install fontconfig openjdk-21-jre
+java -version
 ```
 
 Verify Java is Installed
