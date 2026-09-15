@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: maven:3.9.6-eclipse-temurin-17:replaceImageTag
+        image: rajkiranjce1705/spring-boot-web:replaceImageTag
         ports:
         - containerPort: 8080
