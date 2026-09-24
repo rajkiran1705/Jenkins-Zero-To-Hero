@@ -67,6 +67,7 @@ pipeline {
             )
         ]) {
             sh '''
+                  cd "$WORKSPACE"
                 git config user.email "rajkiranjce@gmail.com"
                 git config user.name "rajkiranjce1705"
 
